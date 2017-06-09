@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>Teste iCasei: Front-End Pleno</title>
+    <link stylesheet="text/css" href="css/materialize.css">
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
   </head>
   <body>
-    <form id="search-film">
+    <form id="search">
       <input type="text" id="search-film-input" placeholder="Procure seu filme">
       <button type="submit" id="search-film-submit">Pesquisar</button>
     </form>
     <div id="results"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="application.js"></script>
+    <script src="lib/materialize/materialize.js"></script>
   </body>
 </html>
