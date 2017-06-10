@@ -1,0 +1,9 @@
+<div>
+  <iframe ng-src="{{ urlVideo }}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+  <div>
+    
+    <h1>{{ video.snippet.title }}</h1>
+    <p ng-bind-html="video.snippet.description"></p>
+    <span>Exibições: {{ video.statistics.viewCount }}</span>
+  </div>
+</div>

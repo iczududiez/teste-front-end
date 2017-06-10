@@ -1,0 +1,15 @@
+<form id="search" name="pesquisaForm">
+    <input type="text" id="search-film-input" name="pesquisa" placeholder="Pesquisar" ng-model="pesquisa.termo" ng-required="required">
+    <button type="submit" id="search-film-submit" ng-disabled="pesquisaForm.pesquisa.$error.required && pesquisaForm.pesquisa.$pristine" ng-click="pesquisar(pesquisa)">Pesquisar</button>
+</form>
+<div id="results" ng-if="!!videos.length">
+    <div ng-repeat="video in videos">
+        <h4>{{ video.snippet.title }}</h4>
+        <img src="{{ video.snippet.thumbnails.high.url }}" />
+        <p>{{video.snippet.description}}</p>
+        <a href="#!/detalheVideo/{{ video.id.videoId }}">detalhe Video</a>
+        <hr/>
+    </div>
+    <button ng-click="prevPage(pesquisa)" ng-disabled="!pesquisa.prevPageToken">anterior</button>
+    <button ng-click="nextPage(pesquisa)" ng-disabled="!pesquisa.nextPageToken">proxima</button>
+</div>

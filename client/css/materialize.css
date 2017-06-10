@@ -5850,6 +5850,7 @@ button.btn-floating {
   position: relative;
   transition: opacity .4s;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .materialboxed:hover:not(.active) {
