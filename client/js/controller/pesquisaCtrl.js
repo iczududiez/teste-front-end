@@ -4,7 +4,8 @@ angular.module("app").controller("pesquisaCtrl", ['$scope', 'pesquisaService', '
         
         $scope.required = true;
         $scope.videos = [];
-        $scope.pesquisa = {'resetToken': false};
+        $scope.buscaRealizada = false;
+        $scope.pesquisa = {'resetToken': false};       
 
         $scope.pesquisar = function pesquisar(pesquisa){
 
@@ -21,6 +22,7 @@ angular.module("app").controller("pesquisaCtrl", ['$scope', 'pesquisaService', '
                 $scope.pesquisa.prevPageToken = response.data.prevPageToken;
                 $scope.pesquisa.nextPageToken = response.data.nextPageToken;
                 cache.put("objPesquisa",$scope.pesquisa);
+                $scope.buscaRealizada = true;
                 //console.log($scope.videos);
                 console.log(cache);
                 console.log(cache.get("objPesquisa"));
