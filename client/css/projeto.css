@@ -1,0 +1,79 @@
+.col.s12 > .btn {
+   width: 100%;
+}
+.col.s12 > a.btn {
+   width: 94%;
+   margin: 0px 3%;
+}
+
+
+@media only screen and (min-width: 601px) {
+    .col.m1 > .btn,
+    .col.m2 > .btn,
+    .col.m3 > .btn,
+    .col.m4 > .btn,
+    .col.m5 > .btn,
+    .col.m6 > .btn,
+    .col.m7 > .btn,
+    .col.m8 > .btn,
+    .col.m9 > .btn,
+    .col.m10 > .btn,
+    .col.m11 > .btn,
+    .col.m12 > .btn{
+        width:auto;
+    }
+
+    
+    .col.m1 > a.btn,
+    .col.m2 > a.btn,
+    .col.m3 > a.btn,
+    .col.m4 > a.btn,
+    .col.m5 > a.btn,
+    .col.m6 > a.btn,
+    .col.m7 > a.btn,
+    .col.m8 > a.btn,
+    .col.m9 > a.btn,
+    .col.m10 > a.btn,
+    .col.m11 > a.btn,
+    .col.m12 > a.btn{
+        width: auto;
+        margin: 0px 1%;
+    }
+}
+
+.card .card-content p {
+    word-wrap: break-word;
+}
+
+li.collection-item.my-collection{
+    display: table;
+    padding: 10px 0px !important;
+    width: 100%;
+}
+
+
+li.collection-item.my-collection p {
+    padding: 0px 10px 0px 0px;
+    word-wrap: break-word;
+}
+
+.collection-action a{
+    text-transform: uppercase;
+}
+
+.displayTable{
+    display: table !important;
+}
+
+.paddingTopBottom{
+    padding: 10px 0px !important;
+}
+
+span.card-title.card-details {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+span.card-title.card-destak {
+    font-weight: bold;
+}

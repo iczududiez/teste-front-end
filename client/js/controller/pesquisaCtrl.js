@@ -1,26 +1,53 @@
-angular.module("app").controller("pesquisaCtrl", ['$scope','pesquisaService', function pesquisaCtrl($scope, pesquisaService){
+angular.module("app").controller("pesquisaCtrl", ['$scope', 'pesquisaService', '$cacheFactory', function pesquisaCtrl($scope, pesquisaService, $cacheFactory){
+        
+        var cache = $cacheFactory.get('pesquisa') || $cacheFactory('pesquisa');
+        
         $scope.required = true;
         $scope.videos = [];
+        $scope.pesquisa = {'resetToken': false};
 
-        $scope.pesquisar = function(pesquisa){
+        $scope.pesquisar = function pesquisar(pesquisa){
+
+            pesquisa.prevPageToken = null;
+            pesquisa.nextPageToken = null;
+            
+            if(pesquisa.resetToken){
+                pesquisa.pageToken = null;
+                pesquisa.resetToken = false;
+            }
+
             pesquisaService.getPesquisaVideos(pesquisa).then(function(response){
-                console.log(response.data);
                 $scope.videos = response.data.items;
                 $scope.pesquisa.prevPageToken = response.data.prevPageToken;
                 $scope.pesquisa.nextPageToken = response.data.nextPageToken;
-                console.log("cassetdadata");
+                cache.put("objPesquisa",$scope.pesquisa);
+                //console.log($scope.videos);
+                console.log(cache);
+                console.log(cache.get("objPesquisa"));
             },function(data){
-                console.log(data);
             });
         }
 
-        $scope.nextPage = function(pesquisa){
-            $scope.pesquisa.pageToken = $scope.pesquisa.nextPageToken;
-            $scope.pesquisar(pesquisa);
+        $scope.nextPage = function nextPage(pesquisa){
+            if($scope.pesquisa.nextPageToken){
+                $scope.pesquisa.pageToken = $scope.pesquisa.nextPageToken;
+                $scope.pesquisar(pesquisa);
+            }
         }
 
-        $scope.prevPage = function(pesquisa){
-            $scope.pesquisa.pageToken = $scope.pesquisa.prevPageToken;
-            $scope.pesquisar(pesquisa);
+        $scope.prevPage = function prevPage(pesquisa){
+            if($scope.pesquisa.prevPageToken){
+                $scope.pesquisa.pageToken = $scope.pesquisa.prevPageToken;
+                $scope.pesquisar(pesquisa);
+            }
+        }
+
+        $scope.resetToken = function resetToken(pesquisa){
+            pesquisa.resetToken = true;
+        }
+
+        if(cache.get("objPesquisa")){
+            $scope.pesquisa = cache.get("objPesquisa");
+            $scope.pesquisar($scope.pesquisa);
         }
 }]);

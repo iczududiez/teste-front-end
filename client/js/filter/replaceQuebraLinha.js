@@ -1,6 +1,5 @@
 angular.module("app").filter("replaceQuebraLinha", function replaceQuebraLinha(){
     return function(input){
-        return input.replace(/\n/g,"<br>");
+        return input ? input.replace(/\n/g,"<br>") : input;
     }
 });
-console.log("HIHIHI");

@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
     <title>Teste iCasei: Front-End Pleno</title>
-    <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="css/materialize.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/ghpages-materialize.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="css/projeto.css" media="screen,projection">
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
     <script src="lib/angular/angular-sanitize.min.js"></script>
@@ -12,11 +18,12 @@
     <script src="js/config/youTubeConfig.js"></script>
     <script src="js/service/pesquisaService.js"></script>
     <script src="js/filter/replaceQuebraLinha.js"></script>
+    <script src="js/filter/replaceLink.js"></script>
     <script src="js/controller/pesquisaCtrl.js"></script>
     <script src="js/controller/detalheVideoCtrl.js"></script>
   </head>
   <body>
-    <div ng-view></div>
+    <div class="container" ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="lib/materialize/materialize.js"></script>
   </body>

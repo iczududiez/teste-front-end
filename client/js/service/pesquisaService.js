@@ -1,5 +1,5 @@
 angular.module("app").factory("pesquisaService",["$http","youTubeConfig", function pesquisaService($http,youTubeConfig){
-    var _getPesquisaVideos = function(pesquisa){
+    var _getPesquisaVideos = function _getPesquisaVideos(pesquisa){
 
             var config = {
                 params:{
@@ -16,7 +16,7 @@ angular.module("app").factory("pesquisaService",["$http","youTubeConfig", functi
             return $http.get(youTubeConfig.searchUrl, config)
     }
 
-    var _getVideo = function(id){
+    var _getVideo = function _getVideo(id){
         
         var config = {
             params:{
