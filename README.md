@@ -1,40 +1,34 @@
-# Teste iCasei: Front-End Pleno
-Desenvolver uma aplicação HTML5
+# iCasei - Teste Front End
+Criação de SPA baseada em descrição tecnica.
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub, ou BitBucket.
-- Siga as especificações abaixo.
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail frontend@icasei.com.br com o título **Teste FrontEnd Pleno**
+## Desenvolvido
+Usando Node.JS com Express, AngularJs, HTML5, CSS3, Karma, Jasmine e Materialize.
 
-## Especificações tecnicas
-- Utilizar diretrizes do [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
-- Utilizar a [API de busca do YouTube](https://developers.google.com/youtube/v3/docs/search/list)
-- Mobile first e responsivo
-- Usar framework JS (AngularJS, Backbone, Knockout)
-- Cores livres, layout livre, imagens livres
-- Gitflow
-- Testes automatizados
+# Instalação
+Após o clone do projeto, é necessário instalar primeiro todas as dependências.
+Navegue até a raiz do repositório e execute:
 
-## Especificações funcionais
-### Tela Inicial
-Essa tela terá um formulário de busca posicionado no meio da tela com campo de texto com placeholder "Pesquisar" e um botão "Buscar". Esse formulário deverá ter validação.
+    $ npm install
 
-Essa busca deverá chamar a url https://www.googleapis.com/youtube/v3/search?part=id,snippet&q={termo_de_busca}&key={API_KEY}
+## Rodando teste automatizados o projeto
+Navegue até a pasta client e execute:
 
-Ao fazer a busca, o formulário deve ser movido para o topo da tela usando css animate e mostrar a lista de resultados com os campos título, descrição, thumbnail e um link para a página de detalhes.
+    $ karma start karma.conf.js
 
-Essa página deverá ter paginação, utilizando os [recursos de paginação da api](https://developers.google.com/youtube/v3/guides/implementation/pagination?hl=pt-br).
+Obs: É necessário ter o karma e jasmine-core instalado globalmente para executar os testes, para instalar os mesmos execute os comandos:
 
-### Tela de detalhes
-A partir do videoId retornado na outra chamada, deve ser feito uma chamada para https://www.googleapis.com/youtube/v3/videos?id={VIDEO_ID}&part=snippet,statistics&key={API_KEY}
+```sh
+$ npm install -g karma
+$ npm install -g jasmine-core
+```
 
-A partir desse retorno, deve-se montar uma tela contendo embed do video, título, descrição e visualizações.
+## Executando o projeto
+Para executar a aplicação use o comando:
 
-Essa tela deve ter um botão para voltar para resultados da busca.
+    $ nodemon
 
-## O que será avaliado?
-- Organização do projeto
-- Lógica do código
-- Uso do Git
-- Testes automatizados
+Obs: É necessário ter o Nodemon instalado globalmente para executar a aplicação, para instalar o mesmo execute o comando:
+
+    $ npm install -g nodemon
+
+A Aplicação é executada em http://localhost:3000/

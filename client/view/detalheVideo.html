@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+          <a href="#!/"><i class="material-icons">arrow_back</i></a>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
+          <div class="video-container">
+            <iframe ng-src="{{ urlVideo }}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="card-content">
+          <span class="card-title card-details blue-grey-text text-lighten-1">{{ video.statistics.viewCount }}  visualizações</span>
+          <span class="card-title card-destak">{{ video.snippet.title }}</span><hr />
+          <p ng-bind-html="video.snippet.description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

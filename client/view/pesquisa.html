@@ -1,0 +1,49 @@
+<div class="container custom-middle-container">
+    <div ng-class="buscaRealizada ? 'custom-transition' : ''" class="row custom-middle-row">
+        <div class="card displayTable col s12 m12 paddingTopBottom">
+            <form id="search" name="pesquisaForm" class="col s12 m12">
+                    <div class="input-field">
+                        <input ng-keyup="resetToken(pesquisa)" type="text" id="search-film-input" name="pesquisa" placeholder="Pesquisar" ng-model="pesquisa.termo" ng-required="required" autocomplete="off">
+                        <label for="search-film-input" class="active">Pesquisar</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" id="search-film-submit" ng-disabled="pesquisaForm.pesquisa.$error.required && pesquisaForm.pesquisa.$pristine" ng-click="pesquisar(pesquisa)">Buscar<i class="material-icons right">search</i></button>
+            
+            </form>
+        </div>
+        <div id="results" ng-class="buscaRealizada && !!videos.length ? 'custom-results-transition' : 'cunstom-results-hide'" class="col s12 m12">
+            <div class="row">
+                <div class="">
+
+                    <h5>Videos encontrados</h5>
+
+                    <ul class="collection">
+                        <li class="collection-item my-collection" ng-repeat="video in videos">
+                            <div class="row">
+                                <div class="col s12 m12">
+                                    <div class="row paddingLeftRight">
+                                        <div  class="col s12 m4">
+                                            <img class="responsive-img" src="{{ (video.snippet.thumbnails.medium || video.snippet.thumbnails.high).url }}">
+                                        </div>
+                                        <div  class="col s12 m8">
+                                            <span class="card-title">{{ video.snippet.title }}</span>
+                                            <p ng-bind-html="video.snippet.description | replaceQuebraLinha | replaceLink"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row paddingLeftRight">
+                                        <div  class="col s12 m12  collection-action">
+                                            <a href="#!/detalheVideo/{{ video.id.videoId }}" class="btn blue lighten-1 waves-effect waves-light" >Assista</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="pagination center-align">
+                <li ng-class="(!pesquisa.prevPageToken ? 'disabled' : '')"><a title="anterior" href="javascript:;" ng-click="prevPage(pesquisa)" class="left"><i class="material-icons">chevron_left</i></a></li>
+                <li ng-class="(!pesquisa.nextPageToken ? 'disabled' : '')"><a title="proxima" href="javascript:;" ng-click="nextPage(pesquisa)" class="right"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
